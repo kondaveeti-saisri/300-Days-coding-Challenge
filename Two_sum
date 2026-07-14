@@ -7,4 +7,71 @@ class Solution:
                 return [dic[complement],i]
             dic[num] = i
 
-        
+Real life Implementation: 
+While processing data one item at a time, quickly check if a previously seen item can combine with the current item to satisfy a condition.
+ 1. Banking & Fraud Detection
+
+Suppose a bank wants to detect whether two transactions together equal a suspicious amount.
+
+Example
+Transactions:
+₹300
+₹700
+₹150
+₹500
+
+Suspicious amount = ₹1000
+
+As each transaction arrives:
+
+300 → store
+700 → 1000 - 700 = 300 ✓ Found!
+
+The bank immediately knows:
+
+300 + 700 = 1000
+
+No need to compare with every previous transaction.    
+
+
+2. E-commerce Discounts
+
+Imagine Amazon has coupons:
+
+Coupon A = $40
+Coupon B = $60
+Coupon C = $30
+
+Customer wants exactly:
+
+$100 discount
+
+Instead of checking every pair:
+
+40 + 60 ✓
+40 + 30 ✗
+60 + 30 ✗
+
+Use a dictionary to instantly find the required partner coupon.
+
+3. Music Playlist
+
+Suppose Spotify wants two songs whose durations equal a target.
+
+Songs:
+180 sec
+240 sec
+120 sec
+60 sec
+
+Target = 300 sec
+
+While scanning:
+
+180 → store
+240 → need 60
+120 → need 180 ✓
+
+Songs:
+
+180 + 120 = 300
