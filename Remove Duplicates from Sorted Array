@@ -1,0 +1,59 @@
+class Solution:
+    def removeDuplicates(self, nums: List[int]) -> int:
+        if not nums:
+            return 0
+
+        i = 0
+        for j in range(1, len(nums)):
+            if nums[i]!=nums[j]:
+                i += 1
+                nums[i] = nums[j]
+
+        return i+1
+
+real life implementation :
+1. Contact List Deduplication
+
+Imagine a phone stores contacts sorted by phone number.
+
+Before:
+
+9876543210
+9876543210
+9876543211
+9876543211
+9876543212
+
+Your algorithm transforms it into
+
+9876543210
+9876543211
+9876543212
+
+without creating another list.
+
+
+
+2. Removing Duplicate Database Records
+
+Suppose a database query returns sorted customer IDs.
+
+101
+101
+101
+102
+103
+103
+104
+
+Before processing reports, you only need unique customers.
+
+After running this algorithm:
+
+101
+102
+103
+104
+
+Many analytics systems first sort data and then remove duplicates exactly like this.
+        
