@@ -1,0 +1,71 @@
+class Solution:
+    def longestPalindrome(self, s: str) -> str:
+        def expand(l,r):
+            while l >= 0 and r<len(s) and s[l]==s[r]:
+                l -= 1
+                r += 1
+            return s[l+1:r]
+        ans=""
+
+        for i in range(len(s)):
+            p1=expand(i,i)
+            p2=expand(i,i+1)
+
+            if len(p1)>len(ans):
+                ans=p1
+            if len(p2)>len(ans):
+                ans = p2
+
+        return ans
+
+Sample input & Output :
+Example 1:
+
+Input: s = "babad"
+Output: "bab"
+Explanation: "aba" is also a valid answer.
+Example 2:
+
+Input: s = "cbbd"
+Output: "bb"
+ 
+
+Constraints:
+
+1 <= s.length <= 1000
+s consist of only digits and English letters.
+
+
+Real life implementation:
+1.Cybersecurity
+
+Attackers sometimes hide payloads using repeated or mirrored strings.
+
+Example:
+
+abcddcba
+
+Security software scans strings to detect suspicious patterns.
+
+Applications:
+
+Malware detection
+Signature matching
+Intrusion detection
+
+2.DNA Sequence Analysis 🧬 (Most Important)
+
+In biology, DNA sequences often contain palindromic regions.
+
+Example:
+
+GAATTC
+
+This sequence reads the same in its complementary direction and is recognized by restriction enzymes.
+
+Scientists use palindrome detection to:
+
+Find restriction enzyme sites
+Analyze genomes
+Detect mutations
+Study genetic regulation
